@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.mainHeader {
+  height: 70px;
+  width: 100%;
+  background-color: #FF8C00;
+  z-index: 2;
+}
+
+.mainChat {
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+}
+
+.sideBar {
+  width: 256px;
+  height: calc(100vh - 70px);
+  background-color: #FF0080;
+  &__roomList {
+    overflow: auto;
+    height: 100%;
+  }
+}
