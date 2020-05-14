@@ -1,26 +1,106 @@
-* {
-  box-sizing: border-box;
-}
-
-.mainHeader {
-  height: 70px;
-  width: 100%;
-  background-color: #FF8C00;
-  z-index: 2;
-}
-
-.mainChat {
-  width: 100%;
-  height: calc(100vh - 70px);
+.wrapper {
+  height: 100vh;
   display: flex;
 }
 
 .sideBar {
-  width: 256px;
-  height: calc(100vh - 70px);
-  background-color: #FF0080;
-  &__roomList {
-    overflow: auto;
-    height: 100%;
+  width: 300px;
+  &__head {
+    height: 100px;
+    background-color: #3E5151;
+    display: flex;
+    align-items: center;
+  }
+  &__community {
+    height: calc(100vh - 100px);
+    background-color: #DECBA4;
+  }
+}
+
+.sideBox {
+  height: 20px;
+  width: 260px;
+  background-color: #ffffff;
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  &__name {
+    color: #333333;
+  }
+  &__community {
+    display: flex;
+    list-style: none;
+    &__new {
+      margin-right: 5px;
+    }
+  }
+}
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.chatMain {
+  width: calc(100% - 300px);
+  &__head {
+    height: 100px;
+    background-color: #DECBA4;
+    border-bottom: 1px solid #595959;
+    display: flex;
+    padding: 0 40px;
+    align-items: center;
+    justify-content: space-between;
+    &__leftBox {
+      color: black;
+      &__currentCommunity {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      &__memberList {
+        display: flex;
+        color: black;
+        font-size: 12px;
+        list-style: none;
+        li {
+          margin-left: 5px;
+        }
+      }
+    }
+    &__editUser {
+      color: black;
+      padding: 15px 20px;
+      display: flex;
+      &__login {
+        margin-right: 10px;
+      }
+    } 
+  }
+  &__area {
+    height: calc(100vh - 190px);
+    background-color: #ffffff;
+  }
+  &__form {
+    height: 90px;
+    background-color: #3E5151;
+    padding: 20px 40px;
+    &__newMessage {
+      display: flex;
+      &__textBox {
+        height: 50px;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 0 15px;
+        border-style: none;
+      }
+      &__submitBtn {
+        height: 50px;
+        width: 100px;
+        background-color: #ffffff;
+        color: black;
+        cursor: pointer;
+        margin-left: 15px;
+      }
+    }
   }
 }

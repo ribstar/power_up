@@ -1,2 +1,39 @@
-= render "mainHeader"
-= render "mainChat"
+.wrapper
+  .sideBar
+    .sideBar__head
+      .sideBox
+        %p.sideBox__name
+          Test
+        %ul.sideBox__community
+          %li.sideBox__community__new
+            = link_to "#" do
+              new
+          %li.sideBox__community__edit
+            = link_to "#" do
+              edit
+    .sideBar__community
+  .chatMain
+    .chatMain__head
+      .chatMain__head__leftBox
+        %h1.chatMain__head__leftBox__currentCommunity
+          kick
+        %ul.chatMain__head__leftBox__memberList
+          Menber:
+          %li.menberFirst
+            abe
+          %li.menberSecond
+            suzuki
+          %li.menberThird
+            sato
+      %ul.chatMain__head__editUser
+        %li.chatMain__head__editUser__login
+          = link_to "#" do
+            ログイン
+        %li.chatMain__head__editUser__registration
+          = link_to "#" do
+            新規登録
+    .chatMain__area
+    .chatMain__form
+      .chatMain__form__newMessage
+        %input{type: "text", placeholder: "", class:"chatMain__form__newMessage__textBox"}
+        %input{type: "submit", value: "Send", class:"chatMain__form__newMessage__submitBtn"} 
