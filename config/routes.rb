@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root to: "communication#index"
+  devise_for :users
+  root "communication#index"
+  resources :users, only: [:edit, :update]
 end

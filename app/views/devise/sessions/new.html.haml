@@ -1,0 +1,21 @@
+#accountPage.accountPage
+  .accountPage__inner.clearfix
+    .accountPage__inner--left.accountPage__header
+      %h2 Log in
+      %h5 登録しているユーザーでログイン
+      = render "devise/shared/links"
+    .accountPage__inner--right.userForm
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          .fieldLabel
+            = f.label :email
+          .fieldInput
+            = f.email_field :email, autofocus: true
+          .field
+            .fieldLabel
+              = f.label :password
+              %i (英数字8文字以上)
+            .fieldInput
+              = f.password_field :password, autocomplete: "off"
+          .actions
+            = f.submit "Log in", class: 'btn'

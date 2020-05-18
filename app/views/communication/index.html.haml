@@ -3,13 +3,13 @@
     .sideBar__head
       .sideBox
         %p.sideBox__name
-          Test
+          =current_user.name
         %ul.sideBox__community
           %li.sideBox__community__new
             = link_to "#" do
               new
           %li.sideBox__community__edit
-            = link_to "#" do
+            = link_to edit_user_path(current_user) do
               edit
     .sideBar__community
   .chatMain
