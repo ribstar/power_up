@@ -1,0 +1,32 @@
+#accountPage.accountPage
+  .accountPage__inner.clearfix
+    .accountPage__inner--left.accountPage__header
+      %h2 Create Account
+      %h5 新規アカウントの作成
+      = render "devise/shared/links"
+    .accountPage__inner--right.userForm
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .field
+          .fieldLabel
+            = f.label :name
+          .fieldInput
+            = f.text_field :name, autofocus: true
+        .field
+          .fieldLabel
+            = f.label :email
+          .fieldInput
+            = f.email_field :email
+        .field
+          .fieldLabel
+            = f.label :password
+            %i (英数字8文字以上)
+          .fieldInput
+            = f.password_field :password, autocomplete: "off"
+        .field
+          .fieldLabel
+            = f.label :password_confirmation
+          .fieldInput
+            = f.password_field :password_confirmation, autocomplete: "off"
+        .actions
+          = f.submit "Create Account", class: 'btn'
