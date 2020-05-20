@@ -1,7 +1,9 @@
 # README
 
 ## ジム関連のアプリ
-# 生徒とオンラインで関わりを持ち、生徒は自宅にいながら指導を受けることができる。ジムでやった内容を振り返ることができる。
+# 生徒とオンラインで関わりを持ち、生徒は自宅にいながら指導を受けることが出来る。
+# ジムでやった内容を振り返ることができる。
+# ジム外での生徒同士でコミュニティのやりとりを行うことが出来る。
 
 # DB設計
 ## users table
@@ -13,8 +15,8 @@
 |nickname|string|null: false,index: true,unique:true|
 
 ### Association
-- has_many :communitys, through:communitys_users
-- has_many :communitys_users
+- has_many :communities, through:communitys_users
+- has_many :communities_users
 - has_many :messages
 
 ## messages table
@@ -28,27 +30,28 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :group
+- belongs_to :community
 
-## communitys table
+## communities table
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|image|string||
 
 ### Association
 - has_many :users, through: groups_users
-- has_many :communitys_users
+- has_many :community_users
 - has_many :messages
 
-## communitys_users table
+## community_users table
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
+- belongs_to :community
 - belongs_to :user
 
 This README would normally document whatever steps are necessary to get the
