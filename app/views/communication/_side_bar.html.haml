@@ -1,0 +1,20 @@
+.sideBar
+  .sideBar__head
+    .sideBox
+      %p.sideBox__name
+        =current_user.name
+      %ul.sideBox__community
+        %li.sideBox__community__new
+          = link_to new_community_path(current_user) do
+            new
+        %li.sideBox__community__edit
+          = link_to edit_user_path(current_user) do
+            edit
+  .sideBar__community
+    - current_user.communities.each do |community|
+      .community
+        = link_to '#' do
+          .community__name
+            = community.name
+          .community__message
+            メッセージはまだありません。

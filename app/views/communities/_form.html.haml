@@ -1,0 +1,25 @@
+= form_for community do |f|
+  - if community.errors.any?
+    .chatCommunityForm__errors
+      %h2= "#{community.errors.full_messages.count}件のエラーが発生しました。"
+      %ul
+        - community.errors.full_messages.each do |message|
+          %li= message
+  .chatCommunityForm__field
+    .chatCommunityForm__field--left
+      = f.label :name, class: 'chatCommunityForm__label'
+    .chatCommunityForm__field--right
+      = f.text_field :name, class: 'chat__communityName chatCommunityForm__input', placeholder: 'グループ名を入力してください'
+  .chatCommunityForm__field.clearfix
+    / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
+  .chatCommunityForm__field.clearfix
+    .chatCommunityForm__field--left
+      %label.chatCommunityForm__label{:for => "chatCommunity_チャットメンバー"} チャットメンバー
+    .chatCommunityForm__field--right
+      / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+      = f.collection_check_boxes :user_ids, User.all, :id, :name
+      / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
+  .cchatCommunityForm__field.clearfix
+    .chatCommunityForm__field--left
+    .chatCommunityForm__field--right
+      = f.submit class: 'chatCommunityForm__action-btn'
