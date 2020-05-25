@@ -40,6 +40,7 @@
             新規登録
     .chatMain__area
     .chatMain__form
+      = form_for [@community, @message] do |f|
       .chatMain__form__newMessage
         %input{type: "text", placeholder: "", class:"chatMain__form__newMessage__textBox"}
         %input{type: "submit", value: "Send", class:"chatMain__form__newMessage__submitBtn"} 
