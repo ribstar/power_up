@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @community.messages.eager_load(:user)
+    @messages = @community.messages.includes(:user)
   end
 
   def create
@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
   end
 
-  def set_group
+  def set_community
     @community = Community.find(params[:community_id])
   end
 end

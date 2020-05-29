@@ -1,3 +1,129 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.wrapper {
+  height: 100vh;
+  display: flex;
+}
+
+.sideBar {
+  width: 300px;
+  &__head {
+    height: 100px;
+    background-color: #ffff1c;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #595959;
+  }
+  &__community {
+    height: calc(100vh - 100px);
+    background-color: #ffff1c;
+  }
+}
+
+.sideBox {
+  height: 20px;
+  width: 260px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  &__name {
+    color: #333333;
+  }
+  &__community {
+    display: flex;
+    list-style: none;
+    &__new {
+      margin-right: 5px;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #333333;
+  }
+}
+
+
+.chatMain {
+  width: calc(100vw - 300px);
+  float: left;
+  &__head {
+    height: 100px;
+    background-color: #2c3e50;
+    border-bottom: 1px solid #595959;
+    display: flex;
+    padding: 0 40px;
+    align-items: center;
+    justify-content: space-between;
+    &__leftBox {
+      color: #ffffff;
+      &__currentCommunity {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      &__memberList {
+        display: flex;
+        color: #ffffff;
+        font-size: 12px;
+        list-style: none;
+        li {
+          margin-left: 5px;
+        }
+      }
+    }
+    &__community {
+      color: #ffffff;
+      padding: 15px 20px;
+      display: flex;
+    } 
+    &__newCommunity {
+      margin-right: 10px;
+    }
+  }
+  .messages {
+    height: calc(100vh - 190px);
+    background-color: #ffffff;
+    padding: 35px 40px;
+    box-sizing: border-box;
+    overflow: scroll;
+  }
+  .form {
+    background-color: #2c3e50;
+    box-sizing: border-box;
+    height: 90px;
+    padding: 20px 50px 20px 40px;
+    &__message {
+      border: none;
+      float: left;
+      height: 50px;
+      width: calc(100% - 150px);
+    }
+    &__mask {
+      background-color: white;
+      float: left;
+      height: 50px;
+      padding-right: 10px;
+      &__image {
+        font-size: 30px;
+        line-height: 50px;
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    &__submit {
+      background-color: #ffffff;
+      border: none;
+      color: black;
+      float: right;
+      font-size: 16px;
+      height: 50px;
+      margin-left: 15px;
+      padding: 0 30px;
+      position: fixed;
+      font-weight: bold;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+}
