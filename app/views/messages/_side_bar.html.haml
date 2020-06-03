@@ -6,15 +6,15 @@
       %ul.sideBox__community
         %li.sideBox__community__new
           = link_to new_community_path(current_user) do
-            new
+            = icon('fas', 'plus', class: "plus__btn")
         %li.sideBox__community__edit
           = link_to edit_user_path(current_user) do
-            edit
+            = icon('fas', 'cog', class: "cog__btn")
   .sideBar__community
     - current_user.communities.each do |community|
       .community
-        = link_to '#' do
+        = link_to community_messages_path(community) do          
           .community__name
             = community.name
           .community__message
-            メッセージはまだありません。
+            = community.show_last_message

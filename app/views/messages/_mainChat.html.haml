@@ -1,0 +1,25 @@
+.chatMain
+  .chatMain__head
+    .chatMain__head__leftBox
+      %h1.chatMain__head__leftBox__currentCommunity
+        = @community.name
+      %ul.chatMain__head__leftBox__memberList
+    %ul.chatMain__head__community
+      %li.chatMain__head__newCommunity
+        = link_to new_community_path(current_user) do
+          = icon('fas', 'plus', class: "plus__btn")
+      %li.chatMain__head__editCommunity
+        =link_to edit_community_path(current_user) do
+          Edit
+
+  .messages
+    = render @messages
+    
+  .form
+    = form_for [@community, @message] do |f|
+      = f.text_area :content, placeholder: "", class:'form__message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
