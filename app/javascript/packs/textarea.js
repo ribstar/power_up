@@ -1,5 +1,5 @@
 $(function(){
-  $('textarea.form__message')
+  $('textarea.message_content')
   .on('change keyup keydown paste cut', function(){
     if ($(this).outerHeight() > this.scrollHeight){
         $(this).height(1)
